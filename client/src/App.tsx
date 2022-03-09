@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { useGoogleOneTapLogin } from "react-google-one-tap-login";
+import { IGoogleEndPointResponse } from "react-google-one-tap-login/dist/types/types";
 function App() {
+  const [isLogin, setIsLogin] = React.useState<boolean>(false);
+  const [user, setUser] = React.useState<IGoogleEndPointResponse>();
+
+  useGoogleOneTapLogin({
+    onError: (error) => console.log(error),
+    onSuccess: (response) => {
+      setIsLogin(true);
+      setUser(response);
+    },
+    disableCancelOnUnmount: true,
+    // https://developers.google.com/identity/gsi/web/reference/js-reference#IdConfiguration for more info
+    googleAccountConfigs: {
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID || "",
+      auto_select: true,
+      cancel_on_tap_outside: true,
+    },
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isLogin ? JSON.stringify(user) : "you are not login yet"}
     </div>
   );
 }
