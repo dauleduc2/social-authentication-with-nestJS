@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      {isLogin ? JSON.stringify(user) : "you are not login yet"}
+      {isLogin ? JSON.stringify(user) : "you are not login yett"}
     </div>
   );
 }
