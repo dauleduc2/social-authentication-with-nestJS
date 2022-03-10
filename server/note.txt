@@ -1,0 +1,5 @@
+client ID :
+79944230823-bcd1ju2cb31jl365ip3aen57nhdk73a4.apps.googleusercontent.com
+
+client secret:
+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

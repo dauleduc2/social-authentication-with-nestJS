@@ -8,6 +8,7 @@ function App() {
   useGoogleOneTapLogin({
     onError: (error) => console.log(error),
     onSuccess: (response) => {
+      console.log(response);
       setIsLogin(true);
       setUser(response);
     },
