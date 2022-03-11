@@ -12,10 +12,10 @@ yarn add @types/passport-google-oauth20 -D
 
 - go to https://console.developers.google.com/
 - create a project
-- Click on Credentials --> Create Credentials --> Fullfill the form
+- Click on Credentials --> Create Credentials --> OAuth clientID --> Fullfill the form
 - after these steps, you got your clientID and clientSecret
 
-# Google
+# Facebook
 
 ```js
 yarn add @nestjs/passport passport passport-facebook
